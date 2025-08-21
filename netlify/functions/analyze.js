@@ -1,5 +1,7 @@
 // File: netlify/functions/analyze.js
 
+const fetch = require('node-fetch');
+
 exports.handler = async function(event) {
   // Hanya izinkan permintaan POST
   if (event.httpMethod !== 'POST') {
@@ -7,9 +9,6 @@ exports.handler = async function(event) {
   }
 
   try {
-    // Gunakan dynamic import yang lebih modern
-    const fetch = (await import('node-fetch')).default;
-    
     const { prompt } = JSON.parse(event.body);
     // Mengambil API key dari Environment Variable yang aman di Netlify
     const geminiApiKey = process.env.GEMINI_API_KEY;
@@ -42,12 +41,3 @@ exports.handler = async function(event) {
     return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
   }
 };
-      body: JSON.stringify(data)
-    };
-
-  } catch (error) {
-    console.error("Server Function Error:", error);
-    return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
-  }
-};
-      
