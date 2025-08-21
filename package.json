@@ -1,0 +1,8 @@
+{
+  "name": "airmon-functions",
+  "version": "1.0.0",
+  "description": "Backend functions for AirMon",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
