@@ -1,0 +1,7 @@
+[build]
+  # Direktori ini berisi file-file yang akan di-deploy
+  publish = "."
+  
+[functions]
+  # Direktori tempat Netlify akan mencari serverless functions
+  directory = "netlify/functions/"
